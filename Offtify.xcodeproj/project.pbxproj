@@ -1,0 +1,480 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		070CCD464B3B478F8C3E5D50 /* PlaylistService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B445677784E4332B09F4045 /* PlaylistService.swift */; };
+		13097513BFC54BEA99F1574E /* ColorExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C22613414224EBC979E272D /* ColorExtractor.swift */; };
+		195E017CE4ED1D266729E8E4 /* CustomBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8CA312DBCE4BDCF72D0113 /* CustomBackgroundView.swift */; };
+		3C219A9C97854B70BAA5F931 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EF6EAFE6AA406B8E79C595 /* Playlist.swift */; };
+		4023836802D0AC723005CF0D /* PlaylistPickerSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BE44FBB7EB1709CF5EEA24 /* PlaylistPickerSheet.swift */; };
+		4723F1FA87582E9654C54686 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AA9712C855C43399CA6357 /* SettingsView.swift */; };
+		5D4C0DD358CA09DC8755142D /* BackgroundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABE58B12B6F2365CBBEB55A /* BackgroundManager.swift */; };
+		AAA000001 /* OfftifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB000001 /* OfftifyApp.swift */; };
+		AAA000002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB000002 /* ContentView.swift */; };
+		AAA000003 /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB000003 /* SidebarView.swift */; };
+		AAA000004 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB000004 /* LibraryView.swift */; };
+		AAA000005 /* MiniPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB000005 /* MiniPlayerView.swift */; };
+		AAA000006 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB000006 /* PlayerView.swift */; };
+		AAA000007 /* TrackRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB000007 /* TrackRowView.swift */; };
+		AAA000008 /* LibraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB000008 /* LibraryViewModel.swift */; };
+		AAA000009 /* PlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB000009 /* PlayerViewModel.swift */; };
+		AAA000010 /* MusicLibraryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB000010 /* MusicLibraryService.swift */; };
+		AAA000011 /* AudioPlayerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB000011 /* AudioPlayerService.swift */; };
+		AAA000012 /* MetadataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB000012 /* MetadataService.swift */; };
+		AAA000013 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB000013 /* Track.swift */; };
+		AAA000014 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB000014 /* Theme.swift */; };
+		AAA000015 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAB000015 /* Assets.xcassets */; };
+		CBD7D31D26844D8EAA976A59 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7B5AD5632C4ACF9C8CDB6B /* PersistenceService.swift */; };
+		D7BCE18FFE214258A0D1871C /* PlaylistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF13DD995F44B7BA720E8C9 /* PlaylistViewModel.swift */; };
+		EE5B3C322AC945A9BA128BAB /* FullScreenPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1AD1A214054371BECE16F1 /* FullScreenPlayerView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		09AA9712C855C43399CA6357 /* SettingsView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		0B445677784E4332B09F4045 /* PlaylistService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistService.swift; sourceTree = "<group>"; };
+		13BE44FBB7EB1709CF5EEA24 /* PlaylistPickerSheet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PlaylistPickerSheet.swift; sourceTree = "<group>"; };
+		1B8CA312DBCE4BDCF72D0113 /* CustomBackgroundView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CustomBackgroundView.swift; sourceTree = "<group>"; };
+		27EF6EAFE6AA406B8E79C595 /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
+		2E7B5AD5632C4ACF9C8CDB6B /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
+		4C22613414224EBC979E272D /* ColorExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtractor.swift; sourceTree = "<group>"; };
+		5ABE58B12B6F2365CBBEB55A /* BackgroundManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BackgroundManager.swift; sourceTree = "<group>"; };
+		9BF13DD995F44B7BA720E8C9 /* PlaylistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistViewModel.swift; sourceTree = "<group>"; };
+		AAB000001 /* OfftifyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfftifyApp.swift; sourceTree = "<group>"; };
+		AAB000002 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		AAB000003 /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
+		AAB000004 /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
+		AAB000005 /* MiniPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniPlayerView.swift; sourceTree = "<group>"; };
+		AAB000006 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		AAB000007 /* TrackRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackRowView.swift; sourceTree = "<group>"; };
+		AAB000008 /* LibraryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewModel.swift; sourceTree = "<group>"; };
+		AAB000009 /* PlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewModel.swift; sourceTree = "<group>"; };
+		AAB000010 /* MusicLibraryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicLibraryService.swift; sourceTree = "<group>"; };
+		AAB000011 /* AudioPlayerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerService.swift; sourceTree = "<group>"; };
+		AAB000012 /* MetadataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetadataService.swift; sourceTree = "<group>"; };
+		AAB000013 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
+		AAB000014 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		AAB000015 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AAB000016 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AAB000017 /* Offtify.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Offtify.entitlements; sourceTree = "<group>"; };
+		AAB000018 /* Offtify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Offtify.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA1AD1A214054371BECE16F1 /* FullScreenPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenPlayerView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AAC000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AAD000001 = {
+			isa = PBXGroup;
+			children = (
+				AAD000002 /* Offtify */,
+				AAD000009 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AAD000002 /* Offtify */ = {
+			isa = PBXGroup;
+			children = (
+				AAD000003 /* App */,
+				AAD000004 /* Views */,
+				AAD000005 /* ViewModels */,
+				AAD000006 /* Services */,
+				AAD000007 /* Models */,
+				AAD000008 /* Styles */,
+				AAD000010 /* Resources */,
+				AAB000016 /* Info.plist */,
+				AAB000017 /* Offtify.entitlements */,
+			);
+			path = Offtify;
+			sourceTree = "<group>";
+		};
+		AAD000003 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				AAB000001 /* OfftifyApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		AAD000004 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BA1AD1A214054371BECE16F1 /* FullScreenPlayerView.swift */,
+				AAB000002 /* ContentView.swift */,
+				AAB000003 /* SidebarView.swift */,
+				AAB000004 /* LibraryView.swift */,
+				AAB000005 /* MiniPlayerView.swift */,
+				AAB000006 /* PlayerView.swift */,
+				AAB000007 /* TrackRowView.swift */,
+				13BE44FBB7EB1709CF5EEA24 /* PlaylistPickerSheet.swift */,
+				1B8CA312DBCE4BDCF72D0113 /* CustomBackgroundView.swift */,
+				09AA9712C855C43399CA6357 /* SettingsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AAD000005 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				9BF13DD995F44B7BA720E8C9 /* PlaylistViewModel.swift */,
+				AAB000008 /* LibraryViewModel.swift */,
+				AAB000009 /* PlayerViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		AAD000006 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				0B445677784E4332B09F4045 /* PlaylistService.swift */,
+				2E7B5AD5632C4ACF9C8CDB6B /* PersistenceService.swift */,
+				AAB000010 /* MusicLibraryService.swift */,
+				AAB000011 /* AudioPlayerService.swift */,
+				AAB000012 /* MetadataService.swift */,
+				5ABE58B12B6F2365CBBEB55A /* BackgroundManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		AAD000007 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				27EF6EAFE6AA406B8E79C595 /* Playlist.swift */,
+				AAB000013 /* Track.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		AAD000008 /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				4C22613414224EBC979E272D /* ColorExtractor.swift */,
+				AAB000014 /* Theme.swift */,
+			);
+			path = Styles;
+			sourceTree = "<group>";
+		};
+		AAD000009 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AAB000018 /* Offtify.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AAD000010 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AAB000015 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AAE000001 /* Offtify */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AAG000001 /* Build configuration list for PBXNativeTarget "Offtify" */;
+			buildPhases = (
+				AAC000002 /* Sources */,
+				AAC000001 /* Frameworks */,
+				AAC000003 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Offtify;
+			productName = Offtify;
+			productReference = AAB000018 /* Offtify.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AAF000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					AAE000001 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = AAG000002 /* Build configuration list for PBXProject "Offtify" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AAD000001;
+			productRefGroup = AAD000009 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AAE000001 /* Offtify */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AAC000003 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAA000015 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AAC000002 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAA000001 /* OfftifyApp.swift in Sources */,
+				AAA000002 /* ContentView.swift in Sources */,
+				AAA000003 /* SidebarView.swift in Sources */,
+				AAA000004 /* LibraryView.swift in Sources */,
+				AAA000005 /* MiniPlayerView.swift in Sources */,
+				AAA000006 /* PlayerView.swift in Sources */,
+				AAA000007 /* TrackRowView.swift in Sources */,
+				AAA000008 /* LibraryViewModel.swift in Sources */,
+				AAA000009 /* PlayerViewModel.swift in Sources */,
+				AAA000010 /* MusicLibraryService.swift in Sources */,
+				AAA000011 /* AudioPlayerService.swift in Sources */,
+				AAA000012 /* MetadataService.swift in Sources */,
+				AAA000013 /* Track.swift in Sources */,
+				AAA000014 /* Theme.swift in Sources */,
+				3C219A9C97854B70BAA5F931 /* Playlist.swift in Sources */,
+				CBD7D31D26844D8EAA976A59 /* PersistenceService.swift in Sources */,
+				070CCD464B3B478F8C3E5D50 /* PlaylistService.swift in Sources */,
+				13097513BFC54BEA99F1574E /* ColorExtractor.swift in Sources */,
+				D7BCE18FFE214258A0D1871C /* PlaylistViewModel.swift in Sources */,
+				EE5B3C322AC945A9BA128BAB /* FullScreenPlayerView.swift in Sources */,
+				4023836802D0AC723005CF0D /* PlaylistPickerSheet.swift in Sources */,
+				5D4C0DD358CA09DC8755142D /* BackgroundManager.swift in Sources */,
+				195E017CE4ED1D266729E8E4 /* CustomBackgroundView.swift in Sources */,
+				4723F1FA87582E9654C54686 /* SettingsView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		AAH000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AAH000002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		AAH000003 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Offtify/Offtify.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Offtify/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Offtify;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2024 Offtify. All rights reserved.";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.offtify.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		AAH000004 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Offtify/Offtify.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Offtify/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Offtify;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2024 Offtify. All rights reserved.";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.offtify.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AAG000001 /* Build configuration list for PBXNativeTarget "Offtify" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAH000003 /* Debug */,
+				AAH000004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AAG000002 /* Build configuration list for PBXProject "Offtify" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAH000001 /* Debug */,
+				AAH000002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AAF000001 /* Project object */;
+}
