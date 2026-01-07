@@ -50,16 +50,6 @@ Your music player should look as good as it sounds.
 
 ---
 
-## �️ Visual Tour
-
-*(Place your screenshots here)*
-
-| Library View | Immersive Player |
-|:---:|:---:|
-| *Browse your collection with style* | *Focus on what matters—the music* |
-
----
-
 ## Installation
 
 **Offtify** is distributed as a standalone macOS application.
