@@ -18,7 +18,7 @@
 
 ## Concept
 
-**Offtify** is designed for the audiophile who values ownership, privacy, and design. In an era of streaming subscriptions, Offtify brings the focus back to *your* personal library. It is built natively for macOS with a philosophy of "Zero Compromise"—meaning no electron-bloat, no internet dependency, and absolutely no lag.
+**Offtify** is designed for the audiophile who values ownership, privacy, and design. In an era of streaming subscriptions, Offtify brings the focus back to *your* personal library. It is built natively for macOS with a philosophy of "Zero Compromise" meaning no electron-bloat, no internet dependency, and absolutely no lag.
 
 We combine the transparency and elegance of modern **Glassmorphism** with a highly optimized, multi-threaded audio engine to deliver a music player that feels like an extension of your operating system.
 
