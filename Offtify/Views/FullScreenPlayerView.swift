@@ -16,6 +16,7 @@ struct FullScreenPlayerView: View {
     @State private var isDraggingProgress: Bool = false
     @State private var dragProgress: Double = 0
     @State private var showingPlaylistPicker: Bool = false
+    @State private var showingSettings: Bool = false
     
     init(playerViewModel: PlayerViewModel, isPresented: Binding<Bool>) {
         self.playerViewModel = playerViewModel
@@ -36,28 +37,18 @@ struct FullScreenPlayerView: View {
                 // Layer 1: Centered content (Artwork & Text)
                 // This is placed independently so it sits EXACTLY in the center of the screen
                 VStack(spacing: geometry.size.height * 0.04) {
-                    if let track = playerViewModel.currentTrack {
-                        // Dynamic artwork size
-                        // Using slightly smaller max height (40%) to ensure clearance for controls even on small screens
-                        let size = min(geometry.size.height * 0.40, geometry.size.width * 0.8)
-                        
-                        ArtworkView(artwork: track.artwork, size: size, cornerRadius: 20)
-                            .shadow(color: .black.opacity(0.5), radius: 50, x: 0, y: 30)
-                        
-                        // Track info
-                        VStack(spacing: Theme.Spacing.xs) {
-                            Text(track.title)
-                                .font(.system(size: 32, weight: .bold))
-                                .foregroundColor(.white)
-                                .lineLimit(2)
-                                .multilineTextAlignment(.center)
-                            
-                            Text(track.artist)
-                                .font(.system(size: 18, weight: .medium))
-                                .foregroundColor(.white.opacity(0.8))
-                                .lineLimit(1)
+                    
+                    // ZStack for Crossfading Content
+                    ZStack {
+                            // Current Track
+                        if let track = playerViewModel.currentTrack {
+                            trackContent(track: track, isIncoming: false, geometry: geometry)
                         }
-                        .padding(.horizontal, Theme.Spacing.xl)
+                        
+                        // Incoming Track
+                        if let incoming = playerViewModel.incomingTrack, playerViewModel.crossfadeProgress > 0 {
+                            trackContent(track: incoming, isIncoming: true, geometry: geometry)
+                        }
                     }
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
@@ -102,6 +93,52 @@ struct FullScreenPlayerView: View {
         }
     }
     
+    // MARK: - Components
+    
+    private func trackContent(track: Track, isIncoming: Bool, geometry: GeometryProxy) -> some View {
+        // Animation Parameters
+        let progress = playerViewModel.crossfadeProgress
+        
+        // Artwork Animation
+        let scale: CGFloat = isIncoming ? (1.1 - (0.1 * progress)) : (1.0 - (0.2 * progress))
+        let opacity: Double = isIncoming ? progress : (1.0 - progress)
+        let blur: CGFloat = isIncoming ? (20 * (1.0 - progress)) : (20 * progress)
+        
+        // Text Animation
+        let textOffsetY: CGFloat = isIncoming ? (20 * (1.0 - progress)) : (-20 * progress)
+        let textOpacity: Double = isIncoming ? progress : (1.0 - progress)
+        
+        return VStack(spacing: geometry.size.height * 0.04) {
+             // Dynamic artwork size
+            // Using slightly smaller max height (40%) to ensure clearance for controls even on small screens
+            let size = min(geometry.size.height * 0.40, geometry.size.width * 0.8)
+            
+            ArtworkView(artwork: track.artwork, size: size, cornerRadius: 20)
+                .shadow(color: .black.opacity(0.5), radius: 50, x: 0, y: 30)
+                .scaleEffect(scale)
+                .opacity(opacity)
+                .blur(radius: blur)
+                .drawingGroup() // Offload to Metal
+            
+            // Track info
+            VStack(spacing: Theme.Spacing.xs) {
+                Text(track.title)
+                    .font(.system(size: 32, weight: .bold))
+                    .foregroundColor(.white)
+                    .lineLimit(2)
+                    .multilineTextAlignment(.center)
+                
+                Text(track.artist)
+                    .font(.system(size: 18, weight: .medium))
+                    .foregroundColor(.white.opacity(0.8))
+                    .lineLimit(1)
+            }
+            .padding(.horizontal, Theme.Spacing.xl)
+            .offset(y: textOffsetY)
+            .opacity(textOpacity)
+        }
+    }
+    
     // MARK: - Background
     
     private var backgroundView: some View {
@@ -109,14 +146,27 @@ struct FullScreenPlayerView: View {
             // Base dark color
             Color(hex: "0B0F1A")
             
-            // Blurred artwork background
+            // Blurred artwork background - Current
             if let track = playerViewModel.currentTrack, let artwork = track.artwork {
                 Image(nsImage: artwork)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .blur(radius: 100)
+                    .blur(radius: 60) // Reduced from 100 for performance
+                    .overlay(Color.black.opacity(0.2)) // Darken slightly to reduce noise
                     .scaleEffect(1.5)
-                    .opacity(0.4)
+                    .opacity(0.4 * (1.0 - playerViewModel.crossfadeProgress))
+                    .animation(.linear(duration: 0.5), value: track.id)
+            }
+            
+            // Blurred artwork background - Incoming
+            if let track = playerViewModel.incomingTrack, let artwork = track.artwork, playerViewModel.crossfadeProgress > 0 {
+                Image(nsImage: artwork)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .blur(radius: 60) // Reduced from 100 for performance
+                    .overlay(Color.black.opacity(0.2))
+                    .scaleEffect(1.5)
+                    .opacity(0.4 * playerViewModel.crossfadeProgress)
             }
             
             // Gradient overlay
@@ -130,6 +180,7 @@ struct FullScreenPlayerView: View {
                 endPoint: .bottom
             )
         }
+        .drawingGroup() // Crucial: Flattens the heavy blur/transparency composition
         .ignoresSafeArea()
     }
     
@@ -161,6 +212,13 @@ struct FullScreenPlayerView: View {
         .overlay(alignment: .trailing) {
             // Context Menu (3 dots)
             Menu {
+                // Playback Settings (NEW)
+                 Button(action: { showingSettings = true }) {
+                    Label("Playback Settings", systemImage: "gearshape")
+                }
+                
+                Divider()
+                
                 // Add to playlist
                 Button(action: { showingPlaylistPicker = true }) {
                     Label("Add to Playlist", systemImage: "plus")
@@ -186,6 +244,9 @@ struct FullScreenPlayerView: View {
                     .presentationDetents([.large])
                     .presentationDragIndicator(.visible)
             }
+        }
+        .sheet(isPresented: $showingSettings) {
+             PlaybackSettingsView(playerViewModel: playerViewModel)
         }
     }
     
@@ -328,4 +389,125 @@ struct FullScreenPlayerView: View {
     }
     
     return PreviewWrapper()
+}
+
+// MARK: - Playback Settings
+
+struct PlaybackSettingsView: View {
+    @ObservedObject var playerViewModel: PlayerViewModel
+    @Environment(\.dismiss) var dismiss
+    
+    var body: some View {
+        VStack(spacing: 0) {
+            // Header
+            HStack {
+                Text("Playback Settings")
+                    .font(.headline)
+                    .foregroundColor(.white)
+                
+                Spacer()
+                
+                Button(action: { dismiss() }) {
+                    Image(systemName: "xmark.circle.fill")
+                        .font(.system(size: 24))
+                        .foregroundColor(.white.opacity(0.6))
+                }
+                .buttonStyle(.plain)
+            }
+            .padding()
+            .background(Color(hex: "1A1F2E"))
+            
+            ScrollView {
+                VStack(spacing: Theme.Spacing.xl) {
+                    
+                    // Crossfade Section
+                    VStack(alignment: .leading, spacing: Theme.Spacing.md) {
+                        HStack {
+                            Image(systemName: "waveform")
+                                .foregroundColor(Theme.accentPrimary)
+                            Text("Crossfade")
+                                .font(.title3)
+                                .fontWeight(.semibold)
+                                .foregroundColor(.white)
+                            Spacer()
+                            
+                            Toggle("", isOn: Binding(
+                                get: { playerViewModel.config.isCrossfadeEnabled },
+                                set: { newValue in
+                                    playerViewModel.updateConfig(
+                                        isCrossfadeEnabled: newValue,
+                                        crossfadeDuration: playerViewModel.config.crossfadeDuration
+                                    )
+                                }
+                            ))
+                            .toggleStyle(SwitchToggleStyle(tint: Theme.accentPrimary))
+                        }
+                        
+                        if playerViewModel.config.isCrossfadeEnabled {
+                            VStack(spacing: Theme.Spacing.sm) {
+                                HStack {
+                                    Text("Duration")
+                                    .foregroundColor(.white.opacity(0.8))
+                                    Spacer()
+                                    Text("\(Int(playerViewModel.config.crossfadeDuration))s")
+                                        .bold()
+                                        .foregroundColor(Theme.accentPrimary)
+                                        .monospacedDigit()
+                                }
+                                
+                                Slider(
+                                    value: Binding(
+                                        get: { playerViewModel.config.crossfadeDuration },
+                                        set: { newValue in
+                                            playerViewModel.updateConfig(
+                                                isCrossfadeEnabled: playerViewModel.config.isCrossfadeEnabled,
+                                                crossfadeDuration: newValue
+                                            )
+                                        }
+                                    ),
+                                    in: 1...12,
+                                    step: 1
+                                )
+                                .accentColor(Theme.accentPrimary)
+                                
+                                HStack {
+                                    Text("1s")
+                                    Spacer()
+                                    Text("12s")
+                                }
+                                .font(.caption)
+                                .foregroundColor(.white.opacity(0.4))
+                            }
+                            .padding()
+                            .background(Color.white.opacity(0.05))
+                            .cornerRadius(12)
+                            .transition(.opacity.combined(with: .move(edge: .top)))
+                        }
+                    }
+                    .padding()
+                    .background(Color(hex: "1A1F2E"))
+                    .cornerRadius(16)
+                    
+                    // Info Section
+                    VStack(alignment: .leading, spacing: Theme.Spacing.sm) {
+                        Label("About Crossfade", systemImage: "info.circle")
+                            .font(.headline)
+                            .foregroundColor(.white.opacity(0.8))
+                            
+                        Text("Crossfade overlaps the end of the current song with the beginning of the next one for a seamless transition. Tracks with gapless metadata will always play without gaps regardless of this setting.")
+                            .font(.subheadline)
+                            .foregroundColor(.white.opacity(0.6))
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+                    .padding()
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .background(Color.white.opacity(0.05))
+                    .cornerRadius(12)
+                }
+                .padding()
+            }
+        }
+        .background(Color(hex: "0B0F1A"))
+        .frame(width: 400, height: 500)
+    }
 }

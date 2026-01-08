@@ -55,6 +55,11 @@ final class PlayerViewModel: ObservableObject {
     @Published var queue: [Track] = []
     @Published var showQueue: Bool = false
     
+    // MARK: - Dual Player / Crossfade Properties
+    @Published var incomingTrack: Track?
+    @Published var crossfadeProgress: Double = 0
+    @Published var config: AudioConfig = .default
+    
     // MARK: - Independent Progress Object (High Frequency)
     // Views that need a progress bar should observe this object directly
     let progress: PlayerProgress = PlayerProgress()
@@ -101,6 +106,21 @@ final class PlayerViewModel: ObservableObject {
                 }
             }
             .store(in: &cancellables)
+            
+        // Observe incoming track
+        audioService.$incomingTrack
+            .receive(on: DispatchQueue.main)
+            .assign(to: &$incomingTrack)
+            
+        // Observe crossfade progress
+        audioService.$crossfadeProgress
+            .receive(on: DispatchQueue.main)
+            .assign(to: &$crossfadeProgress)
+            
+        // Observe config
+        audioService.$config
+            .receive(on: DispatchQueue.main)
+            .assign(to: &$config)
         
         // Observe current time -> SEND TO SEPARATE PROGRESS OBJECT
         // This prevents PlayerViewModel from publishing, thus preventing App-wide redraws
@@ -230,5 +250,13 @@ final class PlayerViewModel: ObservableObject {
     /// Toggle queue visibility
     func toggleQueue() {
         showQueue.toggle()
+    }
+    
+    /// Update audio configuration
+    func updateConfig(isCrossfadeEnabled: Bool, crossfadeDuration: TimeInterval) {
+        var newConfig = audioService.config
+        newConfig.isCrossfadeEnabled = isCrossfadeEnabled
+        newConfig.crossfadeDuration = crossfadeDuration
+        audioService.config = newConfig
     }
 }
